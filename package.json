@@ -4,7 +4,9 @@
   "description": "\"\"",
   "main": "index.js",
   "scripts": {
-    "test": "\"echo \u001f\\\"Error: no test specified\\\" && exit 1\""
+    "test": "\"echo \u001f\\\"Error: no test specified\\\" && exit 1\"",
+    "bundle": "rollup --config rollup.config.js"
+
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,9 @@
   "homepage": "https://github.com/Masch229/Mapapplication#readme",
   "dependencies": {
     "@here/maps-api-for-javascript": "^1.25.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^13.0.0",
+    "rollup": "^2.47.0"
   }
 }
