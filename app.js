@@ -1,6 +1,8 @@
 const express = require('express')
 const path = require('path')
 const app = express()
+const multer = require('multer');
+const upload = multer({dest: __dirname + '/Users/mariusscherff/Documents/GitHub/Mapapplication/images'});
 
 app.use(express.static('./public'))
 
@@ -11,6 +13,17 @@ app.get('/',(req,res)=>{
 app.all('*', (req, res)=>{
     res.status(404).send('resource not found')
 })
+
+app.use(express.static('public'));
+
+app.post('/upload', upload.single('photo'), (req, res) => {
+    if(req.file) {
+        res.json(req.file);
+    }
+    else throw 'error';
+});
+
+
 
 app.listen(5000, ()=> {
     console.log('Server is listening on Port 5000')
